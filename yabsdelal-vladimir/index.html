@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>ЯбСделал — Владимир</title>
+<style>/* Темы: grill (еда, угли), auto (автосервис, шины), beauty (барбершоп, маникюр, массаж),
+   service (ремонт техники, обуви, химчистка), bakery (пекарня). Mobile-first, системные шрифты. */
+.theme-grill{--bg:#fbf6ef;--surface:#fff;--ink:#231a15;--muted:#7a6a5f;--line:#eadfd3;--dark:#1d1511;--accent:#e2561d;--accent-ink:#fff;--accent-soft:#fde6d9;--star:#f2a516}
+.theme-auto{--bg:#f2f4f6;--surface:#fff;--ink:#14181d;--muted:#5f6b76;--line:#dde2e7;--dark:#14181d;--accent:#f5b400;--accent-ink:#14181d;--accent-soft:#fff2c7;--star:#f5b400}
+.theme-beauty{--bg:#f7f2ee;--surface:#fff;--ink:#1d1719;--muted:#76696b;--line:#e8dedb;--dark:#1c1416;--accent:#8c3b4a;--accent-ink:#fff;--accent-soft:#f4e3e5;--star:#c99a3b}
+.theme-service{--bg:#f1f5f9;--surface:#fff;--ink:#0f1b2d;--muted:#56677c;--line:#dae2ec;--dark:#0f1b2d;--accent:#1d63d8;--accent-ink:#fff;--accent-soft:#e2ecfc;--star:#f5a623}
+.theme-bakery{--bg:#fbf5e9;--surface:#fffdf8;--ink:#33221a;--muted:#7b6656;--line:#ecdfc8;--dark:#3a2518;--accent:#a8531a;--accent-ink:#fff;--accent-soft:#f8e7d0;--star:#e3a21a}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
+img{max-width:100%;display:block}
+a{color:inherit}
+h1,h2{line-height:1.15;letter-spacing:-.01em;margin:0}
+h2{font-size:24px;margin-bottom:14px}
+.wrap{width:100%;max-width:760px;margin:0 auto;padding:0 16px}
+.ic{width:20px;height:20px;flex:none;fill:currentColor}
+
+.banner{background:var(--dark);color:#d9d0c8;font-size:12px;line-height:1.35;text-align:center;padding:7px 16px}
+
+/* Первый экран */
+.hero{position:relative;background:var(--dark);color:#fff;overflow:hidden}
+.hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero--photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.15) 0%,rgba(0,0,0,.35) 40%,rgba(0,0,0,.85) 100%)}
+.hero-in{position:relative;z-index:1;padding-top:28px;padding-bottom:24px}
+.hero--photo .hero-in{min-height:min(88svh,640px);display:flex;flex-direction:column;justify-content:flex-end}
+.theme-auto .hero:not(.hero--photo){background:repeating-linear-gradient(135deg,#1a1f25 0 14px,#14181d 14px 28px)}
+/* без фото: у каждой темы свой узор — тонкая полоска, чертёжная сетка, «мука» в точку */
+.theme-beauty .hero:not(.hero--photo){background:radial-gradient(120% 80% at 100% 0,rgba(140,59,74,.55),transparent 60%),repeating-linear-gradient(90deg,rgba(255,255,255,.05) 0 1px,transparent 1px 18px),var(--dark)}
+.theme-service .hero:not(.hero--photo){background:linear-gradient(rgba(120,170,255,.09) 1px,transparent 1px) 0 0/24px 24px,linear-gradient(90deg,rgba(120,170,255,.09) 1px,transparent 1px) 0 0/24px 24px,radial-gradient(100% 70% at 100% 0,rgba(29,99,216,.45),transparent 65%),var(--dark)}
+.theme-bakery .hero:not(.hero--photo){background:radial-gradient(rgba(255,226,180,.13) 1.5px,transparent 1.6px) 0 0/16px 16px,radial-gradient(110% 80% at 0 100%,rgba(168,83,26,.5),transparent 60%),var(--dark)}
+.theme-beauty h1,.theme-beauty h2,.theme-beauty .r-val,.theme-beauty .f-title{font-family:Georgia,"Times New Roman",serif;font-weight:700;letter-spacing:0}
+.theme-beauty .tagline{text-transform:uppercase;letter-spacing:.12em;font-size:14px;font-weight:600}
+.hl{list-style:none;display:flex;flex-wrap:wrap;gap:6px;margin:14px 0 0;padding:0}
+.hl li{padding:6px 11px;border-radius:999px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22);backdrop-filter:blur(6px);font-size:14px;font-weight:600;line-height:1.25}
+.badge{display:inline-flex;align-items:center;gap:8px;align-self:flex-start;margin:0 0 14px;padding:6px 12px;border-radius:999px;background:rgba(255,255,255,.14);backdrop-filter:blur(6px);font-size:14px;font-weight:600}
+.badge::before{content:"";width:8px;height:8px;border-radius:50%;background:#3ddc84;box-shadow:0 0 0 3px rgba(61,220,132,.25)}
+.badge.closed::before{background:#ff8a65;box-shadow:0 0 0 3px rgba(255,138,101,.25)}
+h1{font-size:clamp(34px,10vw,56px);font-weight:800}
+.tagline{font-size:18px;margin:8px 0 0;color:#f3ece6;max-width:32em}
+.where{display:flex;align-items:center;gap:6px;margin:10px 0 0;font-size:15px;color:#d9d0c8}
+.where .ic{width:16px;height:16px}
+.phone-big{display:block;margin:18px 0 0;font-size:clamp(28px,8.5vw,40px);font-weight:800;text-decoration:none;letter-spacing:.01em;font-variant-numeric:tabular-nums}
+.actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px}
+.actions .btn:only-child,.actions .btn:first-child:nth-last-child(3){grid-column:1/-1}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:54px;padding:0 20px;border-radius:14px;font-weight:700;font-size:17px;text-decoration:none;transition:transform .1s}
+.btn:active{transform:scale(.98)}
+.btn-call{background:var(--accent);color:var(--accent-ink);box-shadow:0 6px 18px rgba(0,0,0,.25)}
+.btn-ghost{border:2px solid rgba(255,255,255,.7);color:#fff}
+.btn-dark{border-color:var(--ink);color:var(--ink);margin-top:6px}
+.btn-xl{min-height:62px;font-size:20px;width:100%}
+
+/* Блоки */
+main{padding-bottom:8px}
+.block{margin-top:36px}
+.lead p{margin:0;font-size:18px}
+.menu{list-style:none;margin:0;padding:0;background:var(--surface);border:1px solid var(--line);border-radius:16px}
+.menu li{padding:14px 16px;border-top:1px solid var(--line)}
+.menu li:first-child{border-top:0}
+.m-row{display:flex;align-items:baseline;gap:8px}
+.m-title{font-weight:650;font-size:17px}
+.m-title::first-letter{text-transform:uppercase}
+.m-dots{flex:1;border-bottom:2px dotted var(--line);transform:translateY(-4px)}
+.m-price{font-weight:750;white-space:nowrap;color:var(--accent)}
+.theme-auto .m-price{color:var(--ink)}
+.m-text{margin:4px 0 0;color:var(--muted);font-size:15px}
+.note{display:flex;align-items:center;gap:8px;margin:12px 0 0;padding:14px;border-radius:12px;background:var(--accent-soft);font-weight:650;text-decoration:none;min-height:52px}
+.note-go{margin-left:auto;font-size:20px;color:var(--accent)}
+.theme-auto .note-go{color:var(--ink)}
+.note .ic{color:var(--accent)}
+.theme-auto .note .ic{color:var(--ink)}
+.note-plain{margin:10px 0 0;color:var(--muted)}
+
+.gallery{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;padding:0 16px;scrollbar-width:none;max-width:760px;margin:0 auto}
+.gallery::-webkit-scrollbar{display:none}
+.gallery figure{margin:0;flex:0 0 68%;scroll-snap-align:center}
+.gallery img{width:100%;height:auto;aspect-ratio:3/4;object-fit:cover;border-radius:16px;background:var(--line)}
+
+.praise{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.praise li{display:flex;gap:12px;align-items:flex-start;padding:14px 16px;background:var(--surface);border:1px solid var(--line);border-radius:14px;font-size:17px}
+.praise li span::first-letter{text-transform:uppercase}
+.praise .ic{color:var(--accent);background:var(--accent-soft);border-radius:50%;padding:4px;width:28px;height:28px}
+.theme-auto .praise .ic{color:var(--ink)}
+
+.rating-card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px 16px}
+.rating{display:flex;align-items:center;gap:14px}
+.rating+.rating{margin-top:10px}
+.r-val{font-size:44px;font-weight:800;line-height:1}
+.r-meta{display:grid;gap:2px;color:var(--muted);font-size:14px}
+.stars{--pct:100%;position:relative;display:inline-block;font-size:20px;line-height:1;letter-spacing:2px}
+.stars::before{content:"★★★★★";color:var(--line)}
+.stars::after{content:"★★★★★";position:absolute;left:0;top:0;width:var(--pct);overflow:hidden;color:var(--star)}
+.r-sum{margin:14px 0 0;font-size:17px}
+.link{display:inline-block;margin-top:12px;font-weight:700;color:var(--accent);text-decoration:none;padding:6px 0}
+.theme-auto .link{color:var(--ink);text-decoration:underline}
+
+.c-grid{display:grid;gap:14px}
+.c-line{display:flex;gap:10px;align-items:flex-start;margin:0 0 10px;font-size:17px}
+.c-line .ic{color:var(--muted);margin-top:2px}
+.c-line a{font-weight:700;text-decoration:none}
+.socials{display:flex;flex-wrap:wrap;gap:8px;margin:4px 0 10px}
+.chip{padding:8px 14px;border-radius:999px;background:var(--surface);border:1px solid var(--line);text-decoration:none;font-weight:600;font-size:15px}
+.map{width:100%;height:300px;border:0;border-radius:16px;background:var(--line)}
+
+.final{margin-top:44px;padding:36px 0;background:var(--dark);color:#fff;text-align:center}
+.f-title{margin:0 0 16px;font-size:22px;font-weight:700}
+.f-alt{margin:14px 0 0}
+.f-alt a{display:inline-block;padding:8px 4px;color:#fff;opacity:.85;font-weight:600}
+
+.foot{padding:20px 16px 100px;font-size:13px;color:var(--muted);text-align:center}
+
+.fab{position:fixed;left:16px;right:16px;bottom:max(16px,env(safe-area-inset-bottom));z-index:10;display:flex;align-items:center;justify-content:center;gap:8px;min-height:56px;border-radius:16px;background:var(--accent);color:var(--accent-ink);font-weight:800;font-size:18px;text-decoration:none;box-shadow:0 10px 30px rgba(0,0,0,.3);transform:translateY(140%);transition:transform .25s}
+.fab.show{transform:none}
+
+@media (min-width:768px){
+  .hero--photo .hero-in{min-height:560px}
+  .actions{display:flex;max-width:460px}
+  .actions .btn{flex:1}
+  .gallery figure{flex-basis:32%}
+  .c-grid{grid-template-columns:1fr 1.2fr;align-items:start}
+  .map{height:340px}
+  .btn-xl{width:auto;padding:0 36px}
+  .fab{display:none}
+  .foot{padding-bottom:28px}
+}
+@media (prefers-reduced-motion:reduce){.fab,.btn{transition:none}}
+</style>
+</head>
+<body class="theme-service">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-phone" viewBox="0 0 24 24"><path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></symbol>
+  <symbol id="i-route" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm1 10.4 3.3 2-.8 1.3L11 13V7h2z"/></symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7a11.4 11.4 0 0 1-4.4-3.9c-.5-.7-1-1.8-1-2.9s.6-1.7.8-1.9c.2-.2.5-.3.6-.3h.5c.1 0 .4 0 .6.4l.8 2c.1.2.1.3 0 .5l-.4.6c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.8-1c.2-.2.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.6-.2 1.1z"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path fill="currentColor" d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></symbol>
+  <symbol id="i-cal" viewBox="0 0 24 24"><path fill="currentColor" d="M7 2h2v2h6V2h2v2h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3zm12 8H5v9h14zm-9 2v2H7v-2zm4 0v2h-3v-2zm-4 3v2H7v-2z"/></symbol>
+</svg>
+
+<div class="banner">Демо-концепт, не официальный сайт, удалим по первой просьбе</div>
+
+<header class="hero hero--photo">
+  <img class="hero-bg" src="img/vhod.webp" alt="Холл сервисного центра с зелёными вывесками и входной дверью" fetchpriority="high">
+  <div class="hero-in wrap">
+    
+    <h1>ЯбСделал</h1>
+    <p class="tagline">Ремонт смартфонов: дисплеи, шлейфы</p>
+    
+    <p class="where"><svg class="ic"><use href="#i-route"/></svg>Владимир, Ленинский район</p>
+    <ul class="hl"><li>Часто — в день обращения</li><li>Гарантия на ремонт</li><li>Выезд на дом</li></ul>
+    <a class="phone-big" href="tel:+79300304430">+7 930 030-44-30</a>
+    <div class="actions">
+      <a class="btn btn-call" href="tel:+79300304430"><svg class="ic"><use href="#i-phone"/></svg>Позвонить</a>
+      
+      
+      <a class="btn btn-ghost" href="https://yandex.ru/maps/?text=%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80%2C%20%D0%94%D0%B2%D0%BE%D1%80%D1%8F%D0%BD%D1%81%D0%BA%D0%B0%D1%8F%20%D1%83%D0%BB%D0%B8%D1%86%D0%B0%2C%2010%20%282%20%D1%8D%D1%82%D0%B0%D0%B6%3B%204%20%D0%BF%D0%BE%D0%B4%D1%8A%D0%B5%D0%B7%D0%B4%29" target="_blank" rel="noopener"><svg class="ic"><use href="#i-route"/></svg>Маршрут</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="wrap block lead"><p>Чинят телефоны Apple, Samsung, Xiaomi, Honor, Huawei и других марок: меняют дисплеи и шлейфы. По отзывам, ремонт часто успевают сделать в тот же день.</p></section>
+
+  
+  <section class="wrap block">
+    <h2>Что чиним</h2>
+    <ul class="menu">
+      <li>
+        <div class="m-row"><span class="m-title">Ремонт телефонов</span></div>
+        <p class="m-text">Apple, Samsung, Xiaomi, Honor, Huawei, OPPO, ASUS, Lenovo, Meizu, ZTE</p>
+      </li><li>
+        <div class="m-row"><span class="m-title">Замена дисплея</span></div>
+        
+      </li><li>
+        <div class="m-row"><span class="m-title">Замена шлейфа</span></div>
+        
+      </li><li>
+        <div class="m-row"><span class="m-title">Аксессуары и чехлы</span></div>
+        <p class="m-text">под заказ</p>
+      </li>
+    </ul>
+    <a class="note" href="tel:+79300304430"><svg class="ic"><use href="#i-phone"/></svg>Узнать цену ремонта<span class="note-go" aria-hidden="true">→</span></a>
+    <p class="note-plain">Вход: 4-й подъезд, второй этаж. Оплата картой или наличными.</p>
+  </section>
+  
+
+  
+  <section class="block gallery-wrap" aria-label="Фото">
+    <div class="gallery">
+      <figure><img src="img/vitrina.webp" alt="Торговый зал с витриной и стойкой сервиса" loading="lazy" width="600" height="800"></figure><figure><img src="img/zona-priema.webp" alt="Зона ожидания: чёрный диван и рабочее место с монитором" loading="lazy" width="600" height="800"></figure><figure><img src="img/batareya.webp" alt="Смартфон с индикатором 100% и аккумулятор рядом" loading="lazy" width="600" height="800"></figure>
+    </div>
+  </section>
+  
+
+  
+  <section class="wrap block">
+    <h2>За что хвалят</h2>
+    <ul class="praise"><li><svg class="ic"><use href="#i-check"/></svg><span>Быстрый ремонт, часто в день обращения</span></li><li><svg class="ic"><use href="#i-check"/></svg><span>Качественная работа и гарантия</span></li><li><svg class="ic"><use href="#i-check"/></svg><span>Доступные цены</span></li></ul>
+  </section>
+  
+
+  
+  <section class="wrap block">
+    <h2>Отзывы</h2>
+    <div class="rating-card">
+      <div class="rating">
+        <span class="r-val">4,7</span>
+        <span class="r-meta"><span class="stars" style="--pct:94%" aria-hidden="true"></span><span>23 оценок · 2ГИС</span></span>
+      </div>
+      <p class="r-sum">Клиенты пишут, что телефон часто возвращают в день обращения, работу делают качественно и дают гарантию. Цены называют доступными, мастеров — вежливыми, а расположение удобным.</p>
+      <a class="link" href="https://2gis.ru/vladimir/firm/70000001035818248" target="_blank" rel="noopener">Все отзывы →</a>
+    </div>
+  </section>
+  
+
+  <section class="wrap block contacts">
+    <h2>Как добраться</h2>
+    <div class="c-grid">
+      <div class="c-info">
+        <p class="c-line"><svg class="ic"><use href="#i-route"/></svg><span>Владимир, Дворянская улица, 10 (2 этаж; 4 подъезд)</span></p>
+        <p class="c-line"><svg class="ic"><use href="#i-clock"/></svg><span>Пн-Пт 10:00–19:00; Сб-Вс 10:00–17:00</span></p>
+        <p class="c-line"><svg class="ic"><use href="#i-phone"/></svg><a href="tel:+79300304430">+7 930 030-44-30</a></p>
+        <p class="socials"><a class="chip" href="https://vk.com/remontiphonevladimir" target="_blank" rel="noopener">ВКонтакте</a><a class="chip" href="https://wa.me/79300304430" target="_blank" rel="noopener">WhatsApp</a></p>
+        <a class="btn btn-ghost btn-dark" href="https://yandex.ru/maps/?text=%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80%2C%20%D0%94%D0%B2%D0%BE%D1%80%D1%8F%D0%BD%D1%81%D0%BA%D0%B0%D1%8F%20%D1%83%D0%BB%D0%B8%D1%86%D0%B0%2C%2010%20%282%20%D1%8D%D1%82%D0%B0%D0%B6%3B%204%20%D0%BF%D0%BE%D0%B4%D1%8A%D0%B5%D0%B7%D0%B4%29" target="_blank" rel="noopener"><svg class="ic"><use href="#i-route"/></svg>Построить маршрут</a>
+      </div>
+      <iframe class="map" src="https://yandex.ru/map-widget/v1/?text=%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80%2C%20%D0%94%D0%B2%D0%BE%D1%80%D1%8F%D0%BD%D1%81%D0%BA%D0%B0%D1%8F%20%D1%83%D0%BB%D0%B8%D1%86%D0%B0%2C%2010%20%282%20%D1%8D%D1%82%D0%B0%D0%B6%3B%204%20%D0%BF%D0%BE%D0%B4%D1%8A%D0%B5%D0%B7%D0%B4%29&amp;z=16" loading="lazy" title="Карта: Владимир, Дворянская улица, 10 (2 этаж; 4 подъезд)"></iframe>
+    </div>
+  </section>
+
+  
+  <section class="final">
+    <div class="wrap">
+      <p class="f-title">Узнайте цену ремонта по телефону</p>
+      <a class="btn btn-call btn-xl" href="tel:+79300304430"><svg class="ic"><use href="#i-phone"/></svg>+7 930 030-44-30</a>
+      
+    </div>
+  </section>
+  
+  
+</main>
+
+<footer class="foot wrap">Демо-концепт сайта для «ЯбСделал». Это предложение, не официальный сайт. Удалим по первой просьбе. Фото из открытой карточки организации.</footer>
+<a class="fab" href="tel:+79300304430" aria-label="Позвонить: +7 930 030-44-30"><svg class="ic"><use href="#i-phone"/></svg>Позвонить</a>
+
+<script>// Бейдж «Открыто до HH:MM» по ежедневному графику (местное время города, data-tz — смещение от UTC)
+(function () {
+  var b = document.querySelector(".badge");
+  if (!b) return;
+  var o = b.dataset.open, c = b.dataset.close;
+  if (o === "00:00" && c === "24:00") { b.textContent = "Открыто круглосуточно"; b.hidden = false; return; }
+  var now = new Date(), m = ((now.getUTCHours() + +b.dataset.tz) % 24) * 60 + now.getUTCMinutes();
+  var toMin = function (t) { var p = t.split(":"); return +p[0] * 60 + +p[1]; };
+  var om = toMin(o), cm = toMin(c);
+  if (cm <= om) cm += 24 * 60;
+  var isOpen = (m >= om && m < cm) || (m + 1440 >= om && m + 1440 < cm);
+  b.textContent = isOpen ? "Открыто до " + c.replace("24:00", "00:00") : "Сейчас закрыто, откроется в " + o;
+  b.classList.toggle("closed", !isOpen);
+  b.hidden = false;
+})();
+
+// Плавающая кнопка звонка: появляется, когда кнопки первого экрана и финальная ушли из вида
+(function () {
+  var fab = document.querySelector(".fab");
+  if (!fab || !("IntersectionObserver" in window)) { if (fab) fab.classList.add("show"); return; }
+  var targets = document.querySelectorAll(".hero .actions, .final");
+  var visible = new Set();
+  var io = new IntersectionObserver(function (es) {
+    es.forEach(function (e) { e.isIntersecting ? visible.add(e.target) : visible.delete(e.target); });
+    fab.classList.toggle("show", visible.size === 0);
+  });
+  targets.forEach(function (t) { io.observe(t); });
+})();
+</script>
+</body>
+</html>
